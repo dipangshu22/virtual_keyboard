@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI Gesture Keyboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1>AI Gesture Keyboard</h1>
+
+<div class="layout">
+
+<div class="camera">
+<img src="/video">
+</div>
+
+<div class="notebook">
+
+<div class="page">
+<span id="text"></span><span class="cursor"></span>
+</div>
+
+<div class="stats">
+
+<div class="card">
+WPM
+<span id="wpm">0</span>
+</div>
+
+<div class="card">
+Characters
+<span id="chars">0</span>
+</div>
+
+<div class="card">
+Gestures
+<span id="gestures">0</span>
+</div>
+
+<div class="card">
+Timer
+<span id="time">0</span>s
+</div>
+
+</div>
+<div class="download-section">
+<button onclick="downloadText()">Download TXT</button>
+</div>
+
+</div>
+<P>updated version will be avilable soon!👽</P>
+<p>created by 🤖ddb</p>
+</div>
+
+<script>
+
+/* Wrap text after 70 characters */
+
+function wrapText(text,maxChars){
+
+let result=""
+let count=0
+
+for(let i=0;i<text.length;i++){
+
+result+=text[i]
+count++
+
+if(count>=maxChars && text[i]===" "){
+result+="\n"
+count=0
+}
+
+}
+
+return result
+
+}
+
+/* Update UI */
+
+function updateStats(){
+
+fetch("/stats")
+.then(res=>res.json())
+.then(data=>{
+
+let wrappedText=wrapText(data.text,10)
+
+document.getElementById("text").innerText=wrappedText
+
+document.getElementById("wpm").innerText=data.wpm
+document.getElementById("chars").innerText=data.chars
+document.getElementById("gestures").innerText=data.gestures
+document.getElementById("time").innerText=data.time
+
+})
+
+}
+function downloadText(){
+
+let text=document.getElementById("text").innerText
+
+let blob=new Blob([text],{type:"text/plain"})
+
+let url=URL.createObjectURL(blob)
+
+let a=document.createElement("a")
+
+a.href=url
+a.download="gesture_typing_notes.txt"
+
+document.body.appendChild(a)
+
+a.click()
+
+document.body.removeChild(a)
+
+URL.revokeObjectURL(url)
+
+}
+
+setInterval(updateStats,300)
+
+</script>
+</body>
+</html>

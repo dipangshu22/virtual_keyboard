@@ -1,0 +1,138 @@
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:white;
+font-family:Segoe UI;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+h1{
+margin-top:20px;
+font-size:34px;
+letter-spacing:1px;
+}
+
+.layout{
+display:flex;
+justify-content:center;
+align-items:flex-start;
+gap:50px;
+margin-top:30px;
+padding:20px;
+flex-wrap:wrap;
+}
+
+/* Camera */
+
+.camera img{
+width:720px;
+max-width:95vw;
+border-radius:14px;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Notebook */
+
+.notebook{
+width:420px;
+max-width:95vw;
+}
+
+.page{
+background:white;
+color:black;
+padding:30px;
+height:280px;
+font-size:24px;
+font-family:"Courier New", monospace;
+line-height:34px;
+border-radius:12px;
+
+background-image:linear-gradient(#e5e7eb 1px,transparent 1px);
+background-size:100% 34px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+
+overflow-wrap:break-word;
+text-align:left;
+}
+
+/* Text */
+
+#text{
+white-space:pre-wrap;
+}
+
+/* Cursor */
+
+.cursor{
+display:inline-block;
+width:3px;
+height:28px;
+background:black;
+margin-left:4px;
+animation:blink 1s infinite;
+vertical-align:text-bottom;
+}
+
+/* Cursor animation */
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
+}
+
+/* Stats */
+
+.stats{
+margin-top:25px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:18px;
+border-radius:12px;
+font-size:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+transition:transform 0.2s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+.card span{
+display:block;
+font-size:30px;
+font-weight:700;
+margin-top:8px;
+color:#22c55e;
+}
+.download-section{
+margin-top:20px;
+}
+
+.download-section button{
+background:#22c55e;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.download-section button:hover{
+background:#16a34a;
+transform:scale(1.05);
+}
+
+p{
+    color: #16a34a;
+}
