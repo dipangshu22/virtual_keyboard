@@ -1,3 +1,2 @@
 mediapipe 
 numpy
-opencv
